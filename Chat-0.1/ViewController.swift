@@ -16,32 +16,44 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        print(#function)
+        if doYouWannaHaveLogs {
+            print(#function)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print(#function)
+        if doYouWannaHaveLogs {
+            print(#function)
+        }
      }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print(#function)
+        if doYouWannaHaveLogs {
+            print(#function)
+        }
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print(#function)
+        if doYouWannaHaveLogs {
+            print(#function)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        print(#function)
+        if doYouWannaHaveLogs {
+            print(#function)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        print(#function)
+        if doYouWannaHaveLogs {
+            print(#function)
+        }
     }
 }
 

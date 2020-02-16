@@ -9,16 +9,23 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
         var window: UIWindow?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         print("Application moved from <Non running> to <Inactive>: \(#function)")
+        if #available(iOS 13, *) {
+            return true
+        } else {
+            if doYouWannaHaveLogs {
+                print("Application moved from <Non running> to <Inactive>: \(#function)")
+            }
         // Override point for customization after application launch.
-        return true
+            return true
+        }
     }
   
 
@@ -26,20 +33,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
 
     func applicationWillResignActive(_ application: UIApplication) {
-        print("Application moved from <Active> to <Inactive>: \(#function)")
+        if doYouWannaHaveLogs {
+            print("Application moved from <Active> to <Inactive>: \(#function)")
+        }
     }
     func applicationDidBecomeActive(_ application: UIApplication) {
-        print("Application moved from <Inactive> to <Active>: \(#function)")
+        if doYouWannaHaveLogs {
+            print("Application moved from <Inactive> to <Active>: \(#function)")
+        }
     }
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("Application moved from <Inactive> to <Background>: \(#function)")
+        if doYouWannaHaveLogs {
+            print("Application moved from <Inactive> to <Background>: \(#function)")
+            /* Так же тут может происходить переход в Suspended
+             в случае отсутсвия фоновой работы приложение, что и
+             является причиной отсутствия вызова
+             applicationWillTerminate, подразумевая наличие  */
+        }
     }
     func applicationWillEnterForeground(_ application: UIApplication) {
-        print("Application moved from <Background> to <Inactive>: \(#function)")
+        if doYouWannaHaveLogs {
+            print("Application moved from <Background> to <Inactive>: \(#function)")
+            
+        }
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        print("Application moved from <Background> to <Suspended>: \(#function)")
+        if doYouWannaHaveLogs {
+           print("Application moved from <Background> to <Suspended>: \(#function)")
+            /* В случае выхода из окна выбора приложений или выбора
+             другого приложения с последующим закрытием нашего
+             метод не буден вызван */
+        }
 
     }
     
@@ -52,7 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-         print("Application moved from <Background> to <Suspended>: \(#function)")
+        if doYouWannaHaveLogs {
+            print("Application moved from <Background> to <Suspended>: \(#function)")
+        }
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
