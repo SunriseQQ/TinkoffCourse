@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             /* Так же тут может происходить переход в Suspended
              в случае отсутсвия фоновой работы приложение, что и
              является причиной отсутствия вызова
-             applicationWillTerminate, подразумевая наличие  */
+             applicationWillTerminate */
         }
     }
     func applicationWillEnterForeground(_ application: UIApplication) {
