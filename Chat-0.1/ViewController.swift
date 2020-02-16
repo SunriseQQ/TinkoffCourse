@@ -17,42 +17,42 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if doYouWannaHaveLogs {
-            print(#function)
+            print("ViewController visible state moved from <Appearing> to <Appeared>: \(#function)")
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if doYouWannaHaveLogs {
-            print(#function)
+            print("ViewController visible state moved from <Disappeared> to <Appearing>: \(#function)")
         }
      }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if doYouWannaHaveLogs {
-            print(#function)
+            print("View will adjust the position of its subviews: \(#function)")
         }
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if doYouWannaHaveLogs {
-            print(#function)
+            print("View adjusted the position of its subviews: \(#function)")
         }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         if doYouWannaHaveLogs {
-            print(#function)
+            print("ViewController visible state moved from <Disappearing> to <Disapeared>: \(#function)")
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         if doYouWannaHaveLogs {
-            print(#function)
+            print("ViewController visible state moved from <Appeared> to <Disappearing>: \(#function)")
         }
     }
 }
