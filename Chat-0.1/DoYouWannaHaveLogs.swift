@@ -8,4 +8,4 @@
 
 import Foundation
 
-let doYouWannaHaveLogs = true
+let doYouWannaHaveLogs = false

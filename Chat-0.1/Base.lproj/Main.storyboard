@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,82 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Chat_0_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" image="placeholder-user" translatesAutoresizingMaskIntoConstraints="NO" id="EDc-bq-CZo">
+                                <rect key="frame" x="16" y="27" width="288" height="289"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EDc-bq-CZo" secondAttribute="height" multiplier="288:289" id="YYM-4Y-4ai"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Oqg-fs-e0u"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wn3-a3-bhL">
+                                <rect key="frame" x="224" y="236" width="80" height="80"/>
+                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                <state key="normal" image="slr-camera-2-xxl"/>
+                                <connections>
+                                    <action selector="profileImageButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bYX-od-PNp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Александр Федоров" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-gm-Aji">
+                                <rect key="frame" x="16" y="324" width="304" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFx-5J-H1M">
+                                <rect key="frame" x="16" y="509" width="288" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Редактировать">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-V5-QRV">
+                                <rect key="frame" x="16" y="366" width="81" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wn3-a3-bhL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-8" id="3ch-IW-Y57"/>
+                            <constraint firstItem="EDc-bq-CZo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="66U-cZ-680"/>
+                            <constraint firstItem="o2b-V5-QRV" firstAttribute="leading" secondItem="sa6-gm-Aji" secondAttribute="leading" id="7de-zI-ygg"/>
+                            <constraint firstItem="wn3-a3-bhL" firstAttribute="top" secondItem="Oqg-fs-e0u" secondAttribute="top" constant="209" id="Bu7-uc-GtT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EDc-bq-CZo" secondAttribute="trailing" constant="16" id="GdI-Cv-ZFT"/>
+                            <constraint firstItem="Oqg-fs-e0u" firstAttribute="trailing" secondItem="wn3-a3-bhL" secondAttribute="trailing" id="Ije-Xj-t3G"/>
+                            <constraint firstItem="sa6-gm-Aji" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Kbi-XF-YDi"/>
+                            <constraint firstItem="sa6-gm-Aji" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="R3t-4Y-5tr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o2b-V5-QRV" secondAttribute="trailing" constant="223" id="SwC-cT-abr"/>
+                            <constraint firstItem="wn3-a3-bhL" firstAttribute="leading" secondItem="Oqg-fs-e0u" secondAttribute="leading" constant="208" id="XEQ-09-R8Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EDc-bq-CZo" secondAttribute="bottom" constant="252" id="a6s-zh-rI6"/>
+                            <constraint firstItem="o2b-V5-QRV" firstAttribute="top" secondItem="sa6-gm-Aji" secondAttribute="bottom" constant="8" id="cg1-v9-mhZ"/>
+                            <constraint firstItem="sa6-gm-Aji" firstAttribute="top" secondItem="EDc-bq-CZo" secondAttribute="bottom" constant="8" id="nR3-22-HT2"/>
+                            <constraint firstItem="Oqg-fs-e0u" firstAttribute="bottom" secondItem="wn3-a3-bhL" secondAttribute="bottom" id="osH-XW-gy7"/>
+                            <constraint firstItem="wn3-a3-bhL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="104" id="pHg-JM-OQT"/>
+                            <constraint firstItem="EDc-bq-CZo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="27" id="qwv-TZ-aKJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="editButton" destination="uFx-5J-H1M" id="lE1-pB-F5K"/>
+                        <outlet property="informationLabel" destination="o2b-V5-QRV" id="lYZ-tl-dvE"/>
+                        <outlet property="nameLabel" destination="sa6-gm-Aji" id="3l6-rM-vo2"/>
+                        <outlet property="profileImage" destination="EDc-bq-CZo" id="Hm9-UH-DKm"/>
+                        <outlet property="profileImageButton" destination="wn3-a3-bhL" id="N3B-k3-cYH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.75" y="105.63380281690141"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder-user" width="600" height="600"/>
+        <image name="slr-camera-2-xxl" width="256" height="256"/>
+    </resources>
 </document>
