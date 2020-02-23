@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-gm-Aji">
-                                <rect key="frame" x="16" y="324" width="158.5" height="34"/>
+                                <rect key="frame" x="16" y="324" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,8 +65,10 @@
                             <constraint firstItem="sa6-gm-Aji" firstAttribute="top" secondItem="EDc-bq-CZo" secondAttribute="bottom" constant="9" id="Iyk-Eb-hB3"/>
                             <constraint firstItem="EDc-bq-CZo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Me3-9k-9UN"/>
                             <constraint firstItem="uFx-5J-H1M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OtW-2L-ehH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sa6-gm-Aji" secondAttribute="trailing" constant="16" id="S4p-I9-Tgl"/>
                             <constraint firstItem="EDc-bq-CZo" firstAttribute="centerX" secondItem="uFx-5J-H1M" secondAttribute="centerX" id="VF7-g3-uua"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uFx-5J-H1M" secondAttribute="bottom" constant="25" id="WO6-aX-k5F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o2b-V5-QRV" secondAttribute="trailing" constant="229.5" id="X6v-c9-hAr"/>
                             <constraint firstItem="uFx-5J-H1M" firstAttribute="leading" secondItem="o2b-V5-QRV" secondAttribute="leading" id="avP-fm-oC0"/>
                             <constraint firstItem="EDc-bq-CZo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="bhi-8x-YRa"/>
                             <constraint firstItem="EDc-bq-CZo" firstAttribute="bottom" secondItem="wn3-a3-bhL" secondAttribute="bottom" id="lTy-1V-e0X"/>

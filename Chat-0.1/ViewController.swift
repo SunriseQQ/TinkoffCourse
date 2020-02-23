@@ -51,11 +51,9 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        
         informationLabel.frame.size.width = UIScreen.main.bounds.width * 0.9
-        informationLabel.frame.size.height = UIScreen.main.bounds.width * 0.01
+        informationLabel.frame.size.height = UIScreen.main.bounds.height * 0.5
         informationLabel.sizeToFit()
-        
     }
     
     func showImagePickerControllerActionSheet() {
