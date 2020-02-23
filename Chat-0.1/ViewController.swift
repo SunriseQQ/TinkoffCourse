@@ -21,10 +21,6 @@ class ViewController: UIViewController {
         // print(editButton.frame)
         //Причина ошибки попытка вывести значения frame до полной инициализации editButton.
     }
-
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
