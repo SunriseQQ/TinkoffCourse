@@ -14,7 +14,11 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+<<<<<<< HEAD:Chat-0.1/Model/AppDelegate.swift
     var navigationController: UINavigationController?
+=======
+    
+>>>>>>> master:Chat-0.1/AppDelegate.swift
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //               window = UIWindow(frame: UIScreen.main.bounds)
