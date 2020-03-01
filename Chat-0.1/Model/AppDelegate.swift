@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 <<<<<<< HEAD:Chat-0.1/Model/AppDelegate.swift
+<<<<<<< HEAD:Chat-0.1/Model/AppDelegate.swift
     var navigationController: UINavigationController?
+=======
+    
+>>>>>>> master:Chat-0.1/AppDelegate.swift
 =======
     
 >>>>>>> master:Chat-0.1/AppDelegate.swift
