@@ -14,9 +14,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var navigationController: UINavigationController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //               window = UIWindow(frame: UIScreen.main.bounds)
+        //
+        //       if let window = window {
+        //           let mainVC = ConversationsListViewController()
+        //           navigationController = UINavigationController(rootViewController: mainVC)
+        //           window.rootViewController = navigationController
+        //           window.makeKeyAndVisible()
+        //       }
         if #available(iOS 13, *) {
             return true
         } else {
