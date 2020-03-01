@@ -14,9 +14,29 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+<<<<<<< HEAD:Chat-0.1/AppDelegate.swift
     
+=======
+<<<<<<< HEAD:Chat-0.1/Model/AppDelegate.swift
+<<<<<<< HEAD:Chat-0.1/Model/AppDelegate.swift
+    var navigationController: UINavigationController?
+=======
+    
+>>>>>>> master:Chat-0.1/AppDelegate.swift
+=======
+    
+>>>>>>> master:Chat-0.1/AppDelegate.swift
+>>>>>>> checkThirdHW:Chat-0.1/Model/AppDelegate.swift
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //               window = UIWindow(frame: UIScreen.main.bounds)
+        //
+        //       if let window = window {
+        //           let mainVC = ConversationsListViewController()
+        //           navigationController = UINavigationController(rootViewController: mainVC)
+        //           window.rootViewController = navigationController
+        //           window.makeKeyAndVisible()
+        //       }
         if #available(iOS 13, *) {
             return true
         } else {
