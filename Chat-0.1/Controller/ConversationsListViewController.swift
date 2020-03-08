@@ -12,6 +12,8 @@ class ConversationsListViewController: UIViewController, UITableViewDelegate, UI
     
     @IBOutlet var tableView: UITableView!
     var headerTitles = ["Online", "History"]
+    var filterArrayIsOnline = Example.shared.messagesArray.filter() {$0.isOnline}
+    var filterArrayIsHistory = Example.shared.messagesArray.filter() {!$0.isOnline}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +53,9 @@ class ConversationsListViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return Example.shared.messagesArray.filter() {$0.isOnline}.count
+            return filterArrayIsOnline.count
         } else {
-            return Example.shared.messagesArray.filter() {!$0.isOnline}.count
+            return filterArrayIsHistory.count
         }
     }
     
@@ -63,11 +65,9 @@ class ConversationsListViewController: UIViewController, UITableViewDelegate, UI
         navigationController?.pushViewController(conversationViewController, animated: true)
         
         if indexPath.section == 0 {
-            let cellIsOnline = Example.shared.messagesArray.filter() {$0.isOnline}
-            conversationViewController.title = cellIsOnline[indexPath.row].name
+            conversationViewController.title = filterArrayIsOnline[indexPath.row].name
         } else {
-            let cellIsHistory = Example.shared.messagesArray.filter() {!$0.isOnline}
-            conversationViewController.title = cellIsHistory[indexPath.row].name
+            conversationViewController.title = filterArrayIsHistory[indexPath.row].name
         }
     }
     
