@@ -10,6 +10,10 @@ import Foundation
 
 class Example {
     static let shared = Example()
+    
+    var textName = "First Name"
+    var textAbout = "My name is First name"
+    var textImage = "placeholder-user.png"
     var messagesArray = [
         (ConversationCellModel(name: "Vasiliy Irot", message: "Hi man you owe me money",date: Date(), isOnline: true, hasUnreadMessages: false)),
         (ConversationCellModel(name: "Ahamad Voshnev",message: nil, date: Date(), isOnline: true, hasUnreadMessages: false)),
