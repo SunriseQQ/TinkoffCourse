@@ -21,8 +21,8 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
     @IBOutlet weak var informationTextField: UITextField!
     
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var gcdButton: UIButton!
-    @IBOutlet weak var operationButton: UIButton!
+   // @IBOutlet weak var gcdButton: UIButton!
+    @IBOutlet weak var coreButton: UIButton!
     
     var activeField: UITextField?
     var scrollView: UIScrollView {
@@ -30,8 +30,9 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
     }
     
     private var profile: Profile? = nil
-    private let gcdDataManager = GCDDataManager()
-    private let operationDataManager = OperationDataManager()
+//    private let gcdDataManager = GCDDataManager()
+//    private let operationDataManager = OperationDataManager()
+    private let storageManager = StorageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +46,8 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
         editButton.layer.borderWidth = 0.75
         
         
-        gcdButton.isHidden = true
-        operationButton.isHidden = true
+        //gcdButton.isHidden = true
+        coreButton.isHidden = true
         
         profileImage.layer.cornerRadius = profileImageButton.frame.size.height / 2
         
@@ -65,7 +66,8 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
         scrollView.keyboardDismissMode = .onDrag
         
         
-        readProfile(dataManager: gcdDataManager)
+        //readProfile(dataManager: gcdDataManager)
+        readCoreData()
         
     }
     
@@ -108,61 +110,61 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(barButtonItemPressed))
     }
-    
-    func readProfile(dataManager: DataManager){
-        
-        dataManager.readFile(file: FilesManager.shared.fileForAll){
-            data in
-            
-            self.editClose()
-            if let data = data,
-                let profile = NSKeyedUnarchiver.unarchiveObject(with: data) as? Profile {
-                
-                self.profile = profile
-                
-                self.nameLabel.text = profile.name
-                self.informationLabel.text = profile.about
-                self.profileImage.image = profile.image
-                
-            }
-            if self.profileImage.image == nil {
-                self.profileImage.image = UIImage(named: "placeholder-user.png")
-            }
-        }
-        
-    }
-    
-    func writeProfile(dataManager: DataManager){
-        let textName = nameTextField.text ?? ""
-        let textInformation = informationTextField.text ?? ""
-        let image = (profileImage.image ?? UIImage(named: "plaseholder-user.png")) ?? UIImage()
-        
-        let newProfile = Profile(name: textName, about: textInformation, image: image)
-        
-        let newData = NSKeyedArchiver.archivedData(withRootObject: newProfile)
-        
-        startWrite()
-        dataManager.writeFile(file: FilesManager.shared.fileForAll, data: newData){
-            completed in
-            self.endWrite()
-            
-            if completed {
-                self.profile = newProfile
-                self.showCompletedAlert(title: "Editing was successful",
-                                        message: "Данные сохранены") {
-                                            self.readProfile(dataManager: dataManager)
-                }
-            }else{
-                self.showErrorAlert(message: "Ошибка сохраненния данных", repeatedBlock: {
-                    self.writeProfile(dataManager: dataManager)
-                }, okBlock: {
-                    self.editClose()
-                })
-                
-            }
-        }
-        
-    }
+//
+//    func readProfile(dataManager: DataManager){
+//
+//        dataManager.readFile(file: FilesManager.shared.fileForAll){
+//            data in
+//
+//            self.editClose()
+//            if let data = data,
+//                let profile = NSKeyedUnarchiver.unarchiveObject(with: data) as? Profile {
+//
+//                self.profile = profile
+//
+//                self.nameLabel.text = profile.name
+//                self.informationLabel.text = profile.about
+//                self.profileImage.image = profile.image
+//
+//            }
+//            if self.profileImage.image == nil {
+//                self.profileImage.image = UIImage(named: "placeholder-user.png")
+//            }
+//        }
+//
+//    }
+//
+//    func writeProfile(dataManager: DataManager){
+//        let textName = nameTextField.text ?? ""
+//        let textInformation = informationTextField.text ?? ""
+//        let image = (profileImage.image ?? UIImage(named: "plaseholder-user.png")) ?? UIImage()
+//
+//        let newProfile = Profile(name: textName, about: textInformation, image: image)
+//
+//        let newData = NSKeyedArchiver.archivedData(withRootObject: newProfile)
+//
+//        startWrite()
+//        dataManager.writeFile(file: FilesManager.shared.fileForAll, data: newData){
+//            completed in
+//            self.endWrite()
+//
+//            if completed {
+//                self.profile = newProfile
+//                self.showCompletedAlert(title: "Editing was successful",
+//                                        message: "Данные сохранены") {
+//                                            self.readProfile(dataManager: dataManager)
+//                }
+//            }else{
+//                self.showErrorAlert(message: "Ошибка сохраненния данных", repeatedBlock: {
+//                    self.writeProfile(dataManager: dataManager)
+//                }, okBlock: {
+//                    self.editClose()
+//                })
+//
+//            }
+//        }
+//
+//    }
     
     @objc func barButtonItemPressed(sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -178,8 +180,8 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
     @IBAction func editButtonPressed(_ sender: Any) {
         saveButtonEnabled(enabled: false)
         editButton.isHidden = true
-        gcdButton.isHidden = false
-        operationButton.isHidden = false
+       // gcdButton.isHidden = false
+        coreButton.isHidden = false
         
         nameTextField.isHidden = false
         nameLabel.isHidden = true
@@ -192,12 +194,13 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
         informationTextField.text = informationLabel.text
     }
     
-    @IBAction func gcdButtonPressed(_ sender: Any) {
-        writeProfile(dataManager: gcdDataManager )
-    }
+//    @IBAction func gcdButtonPressed(_ sender: Any) {
+//        writeProfile(dataManager: gcdDataManager )
+//    }
     
-    @IBAction func operationButtonPressed(_ sender: Any) {
-        writeProfile(dataManager: operationDataManager )
+    @IBAction func coreButtonPressed(_ sender: Any) {
+        //writeProfile(dataManager: operationDataManager )
+        saveCoreData()
     }
     
     //MARK - Private
@@ -212,8 +215,8 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
     
     private func editClose(){
         editButton.isHidden = false
-        gcdButton.isHidden = true
-        operationButton.isHidden = true
+        //gcdButton.isHidden = true
+        coreButton.isHidden = true
         
         nameTextField.isHidden = true
         nameLabel.isHidden = false
@@ -224,8 +227,8 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
     }
     
     private func saveButtonEnabled(enabled: Bool) {
-        gcdButton.isEnabled = enabled
-        operationButton.isEnabled = enabled
+        //gcdButton.isEnabled = enabled
+        coreButton.isEnabled = enabled
     }
 }
 
@@ -301,3 +304,63 @@ extension UIViewController {
     }
     
 }
+extension ProfileViewController {
+    func saveCoreData() {
+        let textName = nameTextField.text ?? ""
+        let textInformation = informationTextField.text ?? ""
+        let image = (profileImage.image ?? UIImage(named: "plaseholder-user.png")) ?? UIImage()
+        
+        startWrite()
+        
+        let context = storageManager.privateContext
+        
+        context.perform {
+            [weak self] in
+            if let appUser = self?.storageManager.findOrInsertAppUser(with: "CURRENT_USER_IDENTIFIER", in: context),
+                let currentUser = appUser.currentUser {
+                
+                currentUser.name = textName
+                currentUser.information = textInformation
+                currentUser.image = image
+            }
+            
+            self?.storageManager.performSave(context: context) { (success) in
+                self?.coreDataSavedUser(success)
+            }
+        }
+    }
+    
+    private func coreDataSavedUser(_ success: Bool) {
+        DispatchQueue.main.async {
+            
+            self.endWrite()
+            if success {
+                self.showCompletedAlert(title: "Editing was successful", message: "Данные сохранены") {
+                    self.readCoreData()
+                }
+            } else {
+               self.showErrorAlert(message: "Ошибка сохраненния данных", repeatedBlock: {
+                    self.saveCoreData()
+                }, okBlock: {
+                    self.editClose()
+                })
+            }
+        }
+    }
+    
+    func readCoreData() {
+        endWrite()
+        editClose()
+        if let appUser = storageManager.findOrInsertAppUser(with: "CURRENT_USER_IDENTIFIER", in: storageManager.mainContext) {
+            
+            nameLabel.text = appUser.currentUser?.name
+            informationLabel.text = appUser.currentUser?.information
+            profileImage.image = appUser.currentUser?.image
+        }
+        if self.profileImage.image == nil {
+            self.profileImage.image = UIImage(named: "placeholder-user.png")
+        }
+    }
+}
+
+

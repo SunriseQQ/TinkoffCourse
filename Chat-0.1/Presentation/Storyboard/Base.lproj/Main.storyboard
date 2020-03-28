@@ -214,24 +214,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEY-02-38c">
                                                 <rect key="frame" x="0.0" y="464" width="320" height="60"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04o-5I-QZ1">
-                                                        <rect key="frame" x="16" y="25" width="140" height="25"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="ZAx-zz-a3g"/>
-                                                        </constraints>
-                                                        <state key="normal" title="GCD"/>
-                                                        <connections>
-                                                            <action selector="gcdButtonPressed:" destination="AHu-vv-9ga" eventType="touchUpInside" id="Pqc-AR-j59"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzh-7e-cg3">
-                                                        <rect key="frame" x="164" y="25" width="140" height="25"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="eg2-X8-nUx"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Operation"/>
+                                                        <rect key="frame" x="8" y="25" width="296" height="25"/>
+                                                        <state key="normal" title="Сохранить"/>
                                                         <connections>
-                                                            <action selector="operationButtonPressed:" destination="AHu-vv-9ga" eventType="touchUpInside" id="INO-x8-RnU"/>
+                                                            <action selector="coreButtonPressed:" destination="AHu-vv-9ga" eventType="touchUpInside" id="1Ol-Dw-rag"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-Wc-aLg">
@@ -246,21 +233,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="leading" secondItem="04o-5I-QZ1" secondAttribute="trailing" constant="8" id="8Sm-47-ADv"/>
-                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="height" secondItem="04o-5I-QZ1" secondAttribute="height" id="92Y-dJ-Eb2"/>
+                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="leading" secondItem="cEY-02-38c" secondAttribute="leadingMargin" id="6Sn-6a-HVJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kga-Wc-aLg" secondAttribute="trailing" constant="16" id="BU6-fa-4h3"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Hzh-7e-cg3" secondAttribute="bottom" constant="10" id="Fak-GY-LcL"/>
-                                                    <constraint firstItem="04o-5I-QZ1" firstAttribute="top" secondItem="cEY-02-38c" secondAttribute="top" constant="25" id="OZA-iS-aie"/>
                                                     <constraint firstAttribute="bottom" secondItem="Kga-Wc-aLg" secondAttribute="bottom" constant="8" id="Of8-AM-8qF"/>
-                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="centerY" secondItem="04o-5I-QZ1" secondAttribute="centerY" id="T5F-wv-78e"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Hzh-7e-cg3" secondAttribute="bottom" constant="10" id="Pa4-rG-Eck"/>
                                                     <constraint firstItem="Kga-Wc-aLg" firstAttribute="top" secondItem="cEY-02-38c" secondAttribute="top" constant="18" id="TSR-Zq-pwv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="04o-5I-QZ1" secondAttribute="bottom" constant="10" id="UbE-zE-Ctb"/>
-                                                    <constraint firstAttribute="bottom" secondItem="04o-5I-QZ1" secondAttribute="bottom" constant="10" id="Wh7-2r-oCa"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Hzh-7e-cg3" secondAttribute="trailing" constant="16" id="anp-rM-qEQ"/>
+                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="trailing" secondItem="Kga-Wc-aLg" secondAttribute="trailing" id="Ygi-8D-xMy"/>
                                                     <constraint firstAttribute="height" constant="60" id="bTv-VC-dkg"/>
+                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="top" secondItem="cEY-02-38c" secondAttribute="top" constant="25" id="eUz-wq-vTk"/>
                                                     <constraint firstItem="Kga-Wc-aLg" firstAttribute="leading" secondItem="cEY-02-38c" secondAttribute="leading" constant="16" id="syE-eJ-2I5"/>
-                                                    <constraint firstItem="04o-5I-QZ1" firstAttribute="leading" secondItem="cEY-02-38c" secondAttribute="leading" constant="16" id="tfc-eB-ZYs"/>
-                                                    <constraint firstItem="Hzh-7e-cg3" firstAttribute="width" secondItem="04o-5I-QZ1" secondAttribute="width" id="zxN-o9-BKu"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -294,13 +275,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="wB6-fg-aqR"/>
                     <connections>
+                        <outlet property="coreButton" destination="Hzh-7e-cg3" id="GZ6-QP-OdN"/>
                         <outlet property="editButton" destination="Kga-Wc-aLg" id="fut-Vf-DFo"/>
-                        <outlet property="gcdButton" destination="04o-5I-QZ1" id="Zpo-ge-rtC"/>
                         <outlet property="informationLabel" destination="ARs-Rh-7so" id="Uhj-Yr-hJO"/>
                         <outlet property="informationTextField" destination="8lq-kN-ORg" id="t80-uw-Ehm"/>
                         <outlet property="nameLabel" destination="Bcf-rP-y6A" id="Td7-bt-RtS"/>
                         <outlet property="nameTextField" destination="Imo-8T-MFH" id="iDb-dV-jpc"/>
-                        <outlet property="operationButton" destination="Hzh-7e-cg3" id="fcp-3O-4rb"/>
                         <outlet property="profileImage" destination="TFy-Vi-fzi" id="z03-rh-rJS"/>
                         <outlet property="profileImageButton" destination="RG6-Uh-sZd" id="hKG-zE-3sa"/>
                         <outlet property="profileScrollView" destination="mAs-Ky-HN7" id="csU-bj-NrX"/>
