@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
         
         
         //readProfile(dataManager: gcdDataManager)
-        readCoreData()
+        readCoreData(manager: storageManager)
         
     }
     
@@ -200,7 +200,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, Scro
     
     @IBAction func coreButtonPressed(_ sender: Any) {
         //writeProfile(dataManager: operationDataManager )
-        saveCoreData()
+        saveCoreData(manager: storageManager)
     }
     
     //MARK - Private
@@ -305,7 +305,7 @@ extension UIViewController {
     
 }
 extension ProfileViewController {
-    func saveCoreData() {
+    func saveCoreData(manager: StorageManagerProtocol) {
         let textName = nameTextField.text ?? ""
         let textInformation = informationTextField.text ?? ""
         let image = (profileImage.image ?? UIImage(named: "plaseholder-user.png")) ?? UIImage()
@@ -325,30 +325,43 @@ extension ProfileViewController {
             }
             
             self?.storageManager.performSave(context: context) { (success) in
-                self?.coreDataSavedUser(success)
-            }
-        }
-    }
-    
-    private func coreDataSavedUser(_ success: Bool) {
-        DispatchQueue.main.async {
-            
-            self.endWrite()
-            if success {
-                self.showCompletedAlert(title: "Editing was successful", message: "Данные сохранены") {
-                    self.readCoreData()
+                DispatchQueue.main.async {
+                    self?.endWrite()
+                    if success {
+                        self?.showCompletedAlert(title: "Editing was successful", message: "Данные сохранены") {
+                            self?.readCoreData(manager: manager)
+                        }
+                    } else {
+                        self?.showErrorAlert(message: "Ошибка сохраненния данных", repeatedBlock: {
+                            self?.saveCoreData(manager: manager)
+                        }, okBlock: {
+                            self?.editClose()
+                        })
+                    }
                 }
-            } else {
-               self.showErrorAlert(message: "Ошибка сохраненния данных", repeatedBlock: {
-                    self.saveCoreData()
-                }, okBlock: {
-                    self.editClose()
-                })
-            }
         }
     }
+    }
     
-    func readCoreData() {
+//    private func coreDataSavedUser(_ success: Bool) {
+//        DispatchQueue.main.async {
+//
+//            self.endWrite()
+//            if success {
+//                self.showCompletedAlert(title: "Editing was successful", message: "Данные сохранены") {
+//                    self.readCoreData()
+//                }
+//            } else {
+//               self.showErrorAlert(message: "Ошибка сохраненния данных", repeatedBlock: {
+//                    self.saveCoreData()
+//                }, okBlock: {
+//                    self.editClose()
+//                })
+//            }
+//        }
+//    }
+    
+    func readCoreData(manager: StorageManagerProtocol) {
         endWrite()
         editClose()
         if let appUser = storageManager.findOrInsertAppUser(with: "CURRENT_USER_IDENTIFIER", in: storageManager.mainContext) {
@@ -362,5 +375,4 @@ extension ProfileViewController {
         }
     }
 }
-
 
